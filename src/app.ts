@@ -8,5 +8,8 @@ import {provide} from 'angular2/core';
 declare var Firebase;
 
 bootstrap(StafflaxApp, [
-Back t]
+    //provide(FirebaseService, {
+    //    useFactory: () => new FirebaseService(new Firebase('https://stafflax.firebaseio.com/'))
+    //})
+]
 );
