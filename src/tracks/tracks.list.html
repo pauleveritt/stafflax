@@ -2,7 +2,12 @@
     <div flex layout="column">
         <md-list>
             <md-subheader class="md-no-sticky overview-header">Tracks</md-subheader>
-            <md-list-item ng-repeat="track in ctrl.tracks">
+            <form ng-submit="ctrl.addToDo()">
+            <md-input-container>
+                <label>New Todo...</label>
+                <input ng-model="ctrl.newTodo">
+            </md-input-container>
+            <md-list-item ng-repeat="track in ctrl.items">
                 <div class="md-list-item-text">{{track.title}}</div>
             </md-list-item>
         </md-list>
@@ -10,7 +15,7 @@
     <div flex layout="column">
         <md-list>
             <md-subheader class="md-no-sticky overview-header">Drills</md-subheader>
-            <md-list-item ng-repeat="track in ctrl.tracks">
+            <md-list-item ng-repeat="track in ctrl.items">
                 <div class="md-list-item-text">{{track.title}}</div>
             </md-list-item>
         </md-list>
@@ -18,7 +23,7 @@
     <div flex layout="column">
         <md-list>
             <md-subheader class="md-no-sticky overview-header">People</md-subheader>
-            <md-list-item ng-repeat="track in ctrl.tracks">
+            <md-list-item ng-repeat="track in ctrl.items">
                 <div class="md-list-item-text">{{track.title}}</div>
             </md-list-item>
         </md-list>
@@ -26,7 +31,7 @@
     <div flex layout="column">
         <md-list>
             <md-subheader class="md-no-sticky overview-header">Schedule</md-subheader>
-            <md-list-item ng-repeat="track in ctrl.tracks">
+            <md-list-item ng-repeat="track in ctrl.items">
                 <div class="md-list-item-text">{{track.title}}</div>
             </md-list-item>
         </md-list>

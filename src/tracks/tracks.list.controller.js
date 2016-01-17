@@ -1,14 +1,15 @@
 class Controller {
-    static $inject = ['$log'];
+    static $inject = ['$log', 'Tracks'];
 
-    constructor($log) {
+    constructor($log, Tracks) {
         this.$log = $log;
-        this.tracks = [
-            {title: 'First'},
-            {title: 'Second'},
-            {title: 'Third'},
-            {title: 'Fourth'}
-        ]
+        this.Tracks = Tracks;
+        this.items = Tracks.list();
+        this.newTodo = '';
+    }
+
+    addToDo() {
+        this.Tracks.add(this.newTodo.trim());
     }
 }
 
