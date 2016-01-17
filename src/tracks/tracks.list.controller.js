@@ -3,7 +3,12 @@ class Controller {
 
     constructor($log) {
         this.$log = $log;
-        $log.debug('tracks');
+        this.tracks = [
+            {title: 'First'},
+            {title: 'Second'},
+            {title: 'Third'},
+            {title: 'Fourth'}
+        ]
     }
 }
 

@@ -1,6 +1,34 @@
-<div layout="row">
-    <md-content class="md-padding">
-        <h1 class="md-display-1">Tracks</h1>
-    </md-content>
-</div>
-
+<md-content class="md-padding stafflax-listing" layout="row">
+    <div flex layout="column">
+        <md-list>
+            <md-subheader class="md-no-sticky overview-header">Tracks</md-subheader>
+            <md-list-item ng-repeat="track in ctrl.tracks">
+                <div class="md-list-item-text">{{track.title}}</div>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div flex layout="column">
+        <md-list>
+            <md-subheader class="md-no-sticky overview-header">Drills</md-subheader>
+            <md-list-item ng-repeat="track in ctrl.tracks">
+                <div class="md-list-item-text">{{track.title}}</div>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div flex layout="column">
+        <md-list>
+            <md-subheader class="md-no-sticky overview-header">People</md-subheader>
+            <md-list-item ng-repeat="track in ctrl.tracks">
+                <div class="md-list-item-text">{{track.title}}</div>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div flex layout="column">
+        <md-list>
+            <md-subheader class="md-no-sticky overview-header">Schedule</md-subheader>
+            <md-list-item ng-repeat="track in ctrl.tracks">
+                <div class="md-list-item-text">{{track.title}}</div>
+            </md-list-item>
+        </md-list>
+    </div>
+</md-content>
