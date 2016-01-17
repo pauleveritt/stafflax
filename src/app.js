@@ -12,6 +12,7 @@ import 'angular-material-icons/angular-material-icons.css'
 import themingConfig from './app.theming';
 import root from './root';
 import home from './home';
+import tracks from './tracks';
 
 let appModule = angular.module('app', [
     ngMessages,
@@ -20,7 +21,8 @@ let appModule = angular.module('app', [
     uirouter,
     'firebase',
     root,
-    home
+    home,
+    tracks
 ]);
 
 appModule
