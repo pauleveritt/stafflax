@@ -1,13 +1,12 @@
 class Controller {
-    static $inject = ['$log', '$firebaseObject'];
-    constructor($log, $firebaseObject) {
+    static $inject = ['$log', 'FBURL', '$firebaseObject'];
+    constructor($log, FBURL, $firebaseObject) {
         this.$log = $log;
-        var ref = new Firebase('https://burning-torch-5178.firebaseio.com/');
+        var ref = new Firebase(FBURL);
         this.items = $firebaseObject(ref);
         $log.debug('this.items', this.items);
 
-        var randomRoomId = Math.round(Math.random() * 100000000);
-        this.items[randomRoomId] = {id: randomRoomId, title: 'Foo'};
+        this.items.first = {id: 1, title: 'First'};
         this.items.$save();
     }
 }

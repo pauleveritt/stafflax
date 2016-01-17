@@ -23,6 +23,8 @@ let appModule = angular.module('app', [
     home
 ]);
 
-appModule.config(themingConfig);
+appModule
+    .config(themingConfig)
+    .constant('FBURL', 'https://burning-torch-5178.firebaseio.com/');
 
 export default appModule;
