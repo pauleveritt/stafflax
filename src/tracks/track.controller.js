@@ -3,6 +3,7 @@ class Controller {
 
     constructor($log, Tracks, $stateParams) {
         this.$log = $log;
+        this.Tracks = Tracks;
         Tracks.list().$loaded(() => {
             this.track = Tracks.getName($stateParams.name);
         });

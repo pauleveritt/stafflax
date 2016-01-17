@@ -3,7 +3,7 @@ class Tracks {
 
     constructor($log, FBURL, $firebaseArray) {
         this.$log = $log;
-        let ref = new Firebase(FBURL + 'todos');
+        let ref = new Firebase(FBURL + 'tracks');
         this.items = $firebaseArray(ref);
     }
 
@@ -11,14 +11,19 @@ class Tracks {
         return this.items;
     }
 
-    add(newTodo) {
-        newTodo.name = newTodo.title.toLowerCase().replace(/\s/g, '-');
-        this.items.$add(newTodo);
+    add(newTrack) {
+        newTrack.name = newTrack.title.toLowerCase().replace(/\s/g, '-');
+        this.items.$add(newTrack);
     }
 
     getName (name) {
         return this.items.find(track => track.name === name);
     }
+
+    remove (track) {
+        this.items.$remove(track);
+    }
+
 }
 
 export default Tracks;

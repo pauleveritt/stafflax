@@ -5,15 +5,21 @@ class Controller {
         this.$log = $log;
         this.Tracks = Tracks;
         this.items = Tracks.list();
-        this.newTodo = '';
+        this.newTrack = '';
     }
 
-    addToDo() {
-        let newTodo = {
-            title: this.newTodo.trim()
+    addTrack() {
+        let newTrack = {
+            title: this.newTrack.trim()
         };
-        this.Tracks.add(newTodo);
+        this.Tracks.add(newTrack);
     }
+
+    remove(track) {
+        this.Tracks.remove(track);
+    }
+
+
 }
 
 export default Controller;
