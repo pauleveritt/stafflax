@@ -3,12 +3,14 @@
         <md-list>
             <md-subheader class="md-no-sticky overview-header">Tracks</md-subheader>
             <form ng-submit="ctrl.addToDo()">
-            <md-input-container>
-                <label>New Todo...</label>
-                <input ng-model="ctrl.newTodo">
-            </md-input-container>
+                <md-input-container>
+                    <label>New Todo...</label>
+                    <input ng-model="ctrl.newTodo">
+                </md-input-container>
+            </form>
             <md-list-item ng-repeat="track in ctrl.items">
-                <div class="md-list-item-text">{{track.title}}</div>
+                <a class="md-list-item-text"
+                   ui-sref="tracks.view({name: track.name})">{{track.title}}</a>
             </md-list-item>
         </md-list>
     </div>

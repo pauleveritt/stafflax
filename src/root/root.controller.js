@@ -4,7 +4,7 @@ class Controller {
         this.$log = $log;
         this.rootMenu = [
             {label: 'Stafflax', state: 'home'},
-            {label: 'Tracks', state: 'tracks'}
+            {label: 'Tracks', state: 'tracks.list'}
         ]
     }
 }

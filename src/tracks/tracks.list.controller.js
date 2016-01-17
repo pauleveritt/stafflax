@@ -9,7 +9,10 @@ class Controller {
     }
 
     addToDo() {
-        this.Tracks.add(this.newTodo.trim());
+        let newTodo = {
+            title: this.newTodo.trim()
+        };
+        this.Tracks.add(newTodo);
     }
 }
 

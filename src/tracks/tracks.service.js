@@ -12,11 +12,12 @@ class Tracks {
     }
 
     add(newTodo) {
-        this.$log.debug('ntd', newTodo);
-        this.items.$add({
-            title: newTodo,
-            completed: false
-        });
+        newTodo.name = newTodo.title.toLowerCase().replace(/\s/g, '-');
+        this.items.$add(newTodo);
+    }
+
+    getName (name) {
+        return this.items.find(track => track.name === name);
     }
 }
 
