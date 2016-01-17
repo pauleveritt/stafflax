@@ -4,6 +4,8 @@ import angular from 'angular';
 import ngMaterial from 'angular-material';
 import ngMessages from 'angular-messages';
 import uirouter from 'angular-ui-router';
+import 'firebase';
+import 'angularfire';
 import 'angular-material-icons';
 import 'angular-material-icons/angular-material-icons.css'
 
@@ -16,6 +18,7 @@ let appModule = angular.module('app', [
     ngMaterial,
     'ngMdIcons',
     uirouter,
+    'firebase',
     root,
     home
 ]);
