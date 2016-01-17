@@ -3,27 +3,42 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "ng serve",
-    "deploy": "ng firebase:deploy"
+    "dev": "webpack-dev-server --history-api-fallback --hot --inline --progress",
+    "build": "webpack --config webpack.build.js --bail -p",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.0",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.3",
-    "firebase-angular2": "^0.6.1",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.0",
-    "systemjs": "0.19.4",
-    "zone.js": "0.5.10"
+    "angular": "1.4.7",
+    "angular-animate": "1.4.7",
+    "angular-aria": "1.4.7",
+    "angular-cookies": "1.4.7",
+    "angular-material": "0.11.4",
+    "angular-material-icons": "0.6.0",
+    "angular-messages": "1.4.7",
+    "angular-ui-router": "0.2.15"
   },
   "devDependencies": {
-    "angular-cli": "0.0.*",
-    "angular-cli-firebase-hosting": "^0.1.0",
-    "angular-cli-github-pages": "^0.2.0",
-    "ember-cli-inject-live-reload": "^1.3.0",
-    "jasmine-core": "^2.3.4",
-    "karma": "^0.13.15",
-    "karma-chrome-launcher": "^0.2.1",
-    "karma-jasmine": "^0.3.6"
+    "angular-mocks": "1.4.7",
+    "autoprefixer-core": "5.2.0",
+    "babel": "5.8.23",
+    "babel-eslint": "4.1.1",
+    "babel-loader": "5.1.4",
+    "babel-runtime": "5.5.8",
+    "chai": "3.2.0",
+    "clean-webpack-plugin": "0.1.3",
+    "css-loader": "0.15.5",
+    "eslint": "1.5.0",
+    "eslint-loader": "1.0.0",
+    "extract-text-webpack-plugin": "0.8.2",
+    "file-loader": "0.8.4",
+    "firebase-tools": "^2.2.0",
+    "html-webpack-plugin": "1.5.2",
+    "node-libs-browser": "0.5.2",
+    "null-loader": "0.1.1",
+    "postcss-loader": "0.5.1",
+    "raw-loader": "0.5.1",
+    "style-loader": "0.12.3",
+    "webpack": "1.9.11",
+    "webpack-dev-server": "1.9.0"
   }
 }
