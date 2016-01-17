@@ -1,10 +1,13 @@
 class Tracks {
-    static $inject = ['$log', 'FBURL', '$firebaseArray'];
+    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray'];
 
-    constructor($log, FBURL, $firebaseArray) {
+    constructor($log, $q, FBURL, $firebaseArray) {
         this.$log = $log;
-        let ref = new Firebase(FBURL + 'tracks');
-        this.items = $firebaseArray(ref);
+        this.$q = $q;
+        this.$firebaseArray = $firebaseArray;
+        this.ref = new Firebase(FBURL + 'tracks');
+        let query = this.ref.orderByChild('title');
+        this.items = $firebaseArray(query);
     }
 
     list() {
@@ -16,11 +19,16 @@ class Tracks {
         this.items.$add(newTrack);
     }
 
-    getName (name) {
-        return this.items.find(track => track.name === name);
+    getBy(key, value) {
+        let deferred = this.$q.defer();
+        this.$firebaseArray(this.ref.orderByChild(key).equalTo(value))
+            .$loaded(function (items) {
+                deferred.resolve(items[0]);
+            });
+        return deferred.promise;
     }
 
-    remove (track) {
+    remove(track) {
         this.items.$remove(track);
     }
 
