@@ -1,17 +1,20 @@
 <md-content class="md-padding stafflax-listing" layout="row">
-    <div flex layout="column">
+    <div layout="column" flex="33">
+        <div layout="row">
+            <h1 class="md-display-1">Skills</h1>
+            <span flex></span>
+            <md-button ui-sref="skills.add" aria-label="Add">
+                <ng-md-icon icon="add" style="padding-top: 2em"></ng-md-icon>
+            </md-button>
+        </div>
         <md-list>
-            <md-subheader class="md-no-sticky overview-header">Skills</md-subheader>
-            <form ng-submit="ctrl.addSkill()">
-                <md-input-container>
-                    <label>New skill...</label>
-                    <input ng-model="ctrl.newSkill">
-                </md-input-container>
-            </form>
             <md-list-item ng-repeat="skill in ctrl.items">
                 <a class="md-list-item-text"
                    ui-sref="skills.view({name: skill.name})">{{skill.title}}</a>
-                <md-button ng-click="ctrl.remove(skill)">remove</md-button>
+                <span flex></span>
+                <md-button class="md-primary" ng-click="ctrl.remove(skill)" aria-label="Delete">
+                    <ng-md-icon icon="delete" size="16"></ng-md-icon>
+                </md-button>
             </md-list-item>
         </md-list>
     </div>

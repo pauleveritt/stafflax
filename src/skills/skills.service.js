@@ -1,11 +1,15 @@
 class Skills {
-    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray'];
+    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray', '$firebaseObject'];
 
-    constructor($log, $q, FBURL, $firebaseArray) {
+
+    constructor($log, $q, FBURL, $firebaseArray, $firebaseObject) {
+        this.collectionId = 'skills';
         this.$log = $log;
         this.$q = $q;
         this.$firebaseArray = $firebaseArray;
-        this.ref = new Firebase(FBURL + 'skills');
+        this.$firebaseObject = $firebaseObject;
+        this.refUrl = FBURL + this.collectionId + '/';
+        this.ref = new Firebase(this.refUrl);
         let query = this.ref.orderByChild('title');
         this.items = $firebaseArray(query);
     }
@@ -14,31 +18,23 @@ class Skills {
         return this.items;
     }
 
-    add(newSkill) {
-        newSkill.name = newSkill.title.toLowerCase().replace(/\s/g, '-');
-        this.items.$add(newSkill);
+    add(item) {
+        item.name = item.title.toLowerCase().replace(/\s/g, '-');
+        return this.items.$add(item);
     }
 
     getBy(key, value) {
         let deferred = this.$q.defer();
-        this.$firebaseArray(this.ref.orderByChild(key).equalTo(value))
-            .$loaded(function (items) {
-                deferred.resolve(items[0]);
-            });
+        this.ref.orderByChild(key).equalTo(value).once('child_added', (v) => {
+            let itemUrl = this.refUrl + v.key();
+            let ref = new Firebase(itemUrl);
+            deferred.resolve(this.$firebaseObject(ref));
+        });
         return deferred.promise;
     }
 
-    remove(skill) {
-        this.items.$remove(skill);
-    }
-
-    skills() {
-        let deferred = this.$q.defer();
-        this.$firebaseArray(this.ref.orderByChild(key).equalTo(value))
-            .$loaded(function (items) {
-                deferred.resolve(items[0]);
-            });
-        return deferred.promise;
+    remove(item) {
+        this.items.$remove(item);
     }
 
 }

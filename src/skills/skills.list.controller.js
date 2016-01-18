@@ -8,13 +8,6 @@ class Controller {
         this.newSkill = '';
     }
 
-    addSkill() {
-        let newSkill = {
-            title: this.newSkill.trim()
-        };
-        this.Skills.add(newSkill);
-    }
-
     remove(skill) {
         this.Skills.remove(skill);
     }

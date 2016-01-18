@@ -2,6 +2,8 @@ import SkillsListTemplate from './skills.list.html';
 import SkillsListController from './skills.list.controller.js';
 import SkillTemplate from './skill.html';
 import SkillController from './skill.controller.js';
+import SkillAddTemplate from './Skill.add.html';
+import SkillAddController from './Skill.add.controller';
 
 function routes($stateProvider) {
     $stateProvider
@@ -15,6 +17,12 @@ function routes($stateProvider) {
             url: '/list',
             template: SkillsListTemplate,
             controller: SkillsListController,
+            controllerAs: 'ctrl'
+        })
+        .state('skills.add', {
+            url: '/add',
+            template: SkillAddTemplate,
+            controller: SkillAddController,
             controllerAs: 'ctrl'
         })
         .state('skills.view',
