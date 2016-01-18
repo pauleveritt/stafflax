@@ -11,7 +11,10 @@
             <md-list-item ng-repeat="track in ctrl.items">
                 <a class="md-list-item-text"
                    ui-sref="tracks.view({name: track.name})">{{track.title}}</a>
-                <md-button ng-click="ctrl.remove(track)">remove</md-button>
+                <span flex></span>
+                <md-button class="md-primary" ng-click="ctrl.remove(track)" aria-label="Delete">
+                    <ng-md-icon icon="delete" size="16"></ng-md-icon>
+                </md-button>
             </md-list-item>
         </md-list>
     </div>

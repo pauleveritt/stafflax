@@ -4,6 +4,8 @@ import TrackTemplate from './track.html';
 import TrackController from './track.controller';
 import TrackAddTemplate from './track.add.html';
 import TrackAddController from './track.add.controller';
+import TrackEditTemplate from './track.edit.html';
+import TrackEditController from './track.edit.controller';
 
 function routes($stateProvider) {
     $stateProvider
@@ -30,6 +32,13 @@ function routes($stateProvider) {
                 url: '/{name}',
                 template: TrackTemplate,
                 controller: TrackController,
+                controllerAs: 'ctrl'
+            })
+        .state('tracks.edit',
+            {
+                url: '/{name}/edit',
+                template: TrackEditTemplate,
+                controller: TrackEditController,
                 controllerAs: 'ctrl'
             });
 }

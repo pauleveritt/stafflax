@@ -1,17 +1,20 @@
 class Tracks {
-    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray'];
+    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray', '$firebaseObject'];
 
-    constructor($log, $q, FBURL, $firebaseArray) {
+
+    constructor($log, $q, FBURL, $firebaseArray, $firebaseObject) {
+        this.collectionId = 'tracks';
         this.$log = $log;
         this.$q = $q;
         this.$firebaseArray = $firebaseArray;
-        this.ref = new Firebase(FBURL + 'tracks');
-        let query = this.ref.orderByChild('title');
-        this.items = $firebaseArray(query);
+        this.$firebaseObject = $firebaseObject;
+        this.refUrl = FBURL + this.collectionId + '/';
+        this.ref = new Firebase(this.refUrl);
     }
 
     list() {
-        return this.items;
+        let query = this.ref.orderByChild('title');
+        return this.$firebaseArray(query);
     }
 
     add(newTrack) {
@@ -21,10 +24,11 @@ class Tracks {
 
     getBy(key, value) {
         let deferred = this.$q.defer();
-        this.$firebaseArray(this.ref.orderByChild(key).equalTo(value))
-            .$loaded(function (items) {
-                deferred.resolve(items[0]);
-            });
+        this.ref.orderByChild(key).equalTo(value).once('child_added', (v) => {
+            let itemUrl = this.refUrl + v.key();
+            let ref = new Firebase(itemUrl);
+            deferred.resolve(this.$firebaseObject(ref));
+        });
         return deferred.promise;
     }
 
