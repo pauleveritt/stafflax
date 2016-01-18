@@ -16,7 +16,7 @@ class Tracks {
 
     add(newTrack) {
         newTrack.name = newTrack.title.toLowerCase().replace(/\s/g, '-');
-        this.items.$add(newTrack);
+        return this.items.$add(newTrack);
     }
 
     getBy(key, value) {
