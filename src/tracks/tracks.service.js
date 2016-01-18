@@ -10,11 +10,12 @@ class Tracks {
         this.$firebaseObject = $firebaseObject;
         this.refUrl = FBURL + this.collectionId + '/';
         this.ref = new Firebase(this.refUrl);
+        let query = this.ref.orderByChild('title');
+        this.items = $firebaseArray(query);
     }
 
     list() {
-        let query = this.ref.orderByChild('title');
-        return this.$firebaseArray(query);
+        return this.items;
     }
 
     add(newTrack) {
