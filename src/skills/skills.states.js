@@ -4,6 +4,8 @@ import SkillTemplate from './skill.html';
 import SkillController from './skill.controller.js';
 import SkillAddTemplate from './Skill.add.html';
 import SkillAddController from './Skill.add.controller';
+import SkillEditTemplate from './skill.edit.html';
+import SkillEditController from './skill.edit.controller';
 
 function routes($stateProvider) {
     $stateProvider
@@ -31,7 +33,15 @@ function routes($stateProvider) {
                 template: SkillTemplate,
                 controller: SkillController,
                 controllerAs: 'ctrl'
+            })
+        .state('skills.edit',
+            {
+                url: '/{name}/edit',
+                template: SkillEditTemplate,
+                controller: SkillEditController,
+                controllerAs: 'ctrl'
             });
+
 }
 routes.$inject = ['$stateProvider'];
 
