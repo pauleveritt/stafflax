@@ -32,6 +32,15 @@ class Tracks {
         this.items.$remove(track);
     }
 
+    skills() {
+        let deferred = this.$q.defer();
+        this.$firebaseArray(this.ref.orderByChild(key).equalTo(value))
+            .$loaded(function (items) {
+                deferred.resolve(items[0]);
+            });
+        return deferred.promise;
+    }
+
 }
 
 export default Tracks;
