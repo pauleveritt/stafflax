@@ -13,6 +13,7 @@ import themingConfig from './app.theming';
 import root from './root';
 import home from './home';
 import tracks from './tracks';
+import skills from './skills';
 
 let appModule = angular.module('app', [
     ngMessages,
@@ -22,7 +23,8 @@ let appModule = angular.module('app', [
     'firebase',
     root,
     home,
-    tracks
+    tracks,
+    skills
 ]);
 
 appModule
