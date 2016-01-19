@@ -1,15 +1,15 @@
 class Controller {
-    static $inject = ['$log', 'Skills', 'Tracks', '$stateParams', '$firebaseObject'];
+    static $inject = ['$log', 'Skills', '$stateParams'];
 
-    constructor($log, Skills, Tracks, $stateParams, $firebaseObject) {
+    constructor($log, Skills, $stateParams) {
         this.$log = $log;
         this.Skills = Skills;
         let name = $stateParams.name;
         Skills.getBy('name', name)
             .then((skill) => {
                 this.skill = skill;
-                $firebaseObject(Tracks.ref.child(skill.trackId))
-                    .$loaded((track) => this.trackTitle = track.title);
+                Skills.getTrack(skill.trackId)
+                    .then((track) => this.trackTitle = track.title);
             });
     }
 

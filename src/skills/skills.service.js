@@ -1,13 +1,14 @@
 class Skills {
-    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray', '$firebaseObject'];
+    static $inject = ['$log', '$q', 'FBURL', '$firebaseArray', '$firebaseObject', 'Tracks'];
 
 
-    constructor($log, $q, FBURL, $firebaseArray, $firebaseObject) {
+    constructor($log, $q, FBURL, $firebaseArray, $firebaseObject, Tracks) {
         this.collectionId = 'skills';
         this.$log = $log;
         this.$q = $q;
         this.$firebaseArray = $firebaseArray;
         this.$firebaseObject = $firebaseObject;
+        this.Tracks = Tracks;
         this.refUrl = FBURL + this.collectionId + '/';
         this.ref = new Firebase(this.refUrl);
         let query = this.ref.orderByChild('title');
@@ -35,6 +36,16 @@ class Skills {
 
     remove(item) {
         this.items.$remove(item);
+    }
+
+    getTrack(trackId) {
+        // Return a promise with the track information for this skill
+        let deferred = this.$q.defer();
+
+        this.$firebaseObject(this.Tracks.ref.child(trackId))
+            .$loaded((track) => deferred.resolve(track));
+
+        return deferred.promise;
     }
 
 }
