@@ -13,7 +13,7 @@
             <md-input-container>
                 <label>Track</label>
                 <md-select name="trackId" ng-model="ctrl.trackId" required>
-                    <md-option ng-repeat="track in ctrl.tracks" value="{{track.id}}">
+                    <md-option ng-repeat="(trackId, track) in ctrl.tracks" value="{{track.$id}}">
                         {{track.title}}
                     </md-option>
                 </md-select>
