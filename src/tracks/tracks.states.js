@@ -2,10 +2,12 @@ import TracksListTemplate from './tracks.list.html';
 import TracksListController from './tracks.list.controller';
 import TrackTemplate from './track.html';
 import TrackController from './track.controller';
-import TrackAddTemplate from './track.add.html';
-import TrackAddController from './track.add.controller';
-import TrackEditTemplate from './track.edit.html';
-import TrackEditController from './track.edit.controller';
+//import TrackAddTemplate from './track.add.html';
+//import TrackAddController from './track.add.controller';
+//import TrackEditTemplate from './track.edit.html';
+//import TrackEditController from './track.edit.controller';
+import TrackSkillTemplate from './track.skill.html';
+import TrackSkillController from './track.skill.controller';
 
 function routes($stateProvider) {
     $stateProvider
@@ -21,12 +23,12 @@ function routes($stateProvider) {
             controller: TracksListController,
             controllerAs: 'ctrl'
         })
-        .state('tracks.add', {
-            url: '/add',
-            template: TrackAddTemplate,
-            controller: TrackAddController,
-            controllerAs: 'ctrl'
-        })
+        //.state('tracks.add', {
+        //    url: '/add',
+        //    template: TrackAddTemplate,
+        //    controller: TrackAddController,
+        //    controllerAs: 'ctrl'
+        //})
         .state('tracks.view',
             {
                 url: '/{name}',
@@ -34,13 +36,20 @@ function routes($stateProvider) {
                 controller: TrackController,
                 controllerAs: 'ctrl'
             })
-        .state('tracks.edit',
+        .state('tracks.skill',
             {
-                url: '/{name}/edit',
-                template: TrackEditTemplate,
-                controller: TrackEditController,
+                url: '/tracks/{trackName}/skills/{skillName}',
+                template: TrackSkillTemplate,
+                controller: TrackSkillController,
                 controllerAs: 'ctrl'
             });
+        //.state('tracks.view.edit',
+        //    {
+        //        url: '/edit',
+        //        template: TrackEditTemplate,
+        //        controller: TrackEditController,
+        //        controllerAs: 'ctrl'
+        //    });
 }
 routes.$inject = ['$stateProvider'];
 

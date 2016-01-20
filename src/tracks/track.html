@@ -10,34 +10,12 @@
         <md-list>
             <md-list-item ng-repeat="(skillId, skill) in ctrl.listSkills()">
                 <a class="md-list-item-text"
-                   ui-sref="skills.view({name: skill.name})">{{skill.title}}</a>
+                   ui-sref="tracks.skill({trackName: ctrl.track.name, skillName: skill.name})">{{skill.title}}</a>
                 <!--<span flex></span>-->
                 <!--<md-button class="md-primary" ng-click="ctrl.remove(track)" aria-label="Delete">-->
                 <!--<ng-md-icon icon="delete" size="16"></ng-md-icon>-->
                 <!--</md-button>-->
             </md-list-item>
         </md-list>
-        <videogular vg-theme="ctrl.config.theme">
-            <vg-media vg-src="ctrl.config.sources"
-                      vg-tracks="ctrl.config.tracks">
-            </vg-media>
-            <vg-controls>
-                <vg-play-pause-button></vg-play-pause-button>
-                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                <vg-scrub-bar>
-                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                </vg-scrub-bar>
-                <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                <vg-volume>
-                    <vg-mute-button></vg-mute-button>
-                    <vg-volume-bar></vg-volume-bar>
-                </vg-volume>
-                <vg-fullscreen-button></vg-fullscreen-button>
-            </vg-controls>
-
-            <vg-overlay-play></vg-overlay-play>
-            <vg-poster vg-url='ctrl.config.plugins.poster'></vg-poster>
-        </videogular>
-
     </div>
 </md-content>
