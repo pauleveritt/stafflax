@@ -1,14 +1,15 @@
 class Controller {
-    static $inject = ['$log', 'Db', 'Tracks', '$stateParams'];
+    static $inject = ['$log', 'Db', '$stateParams'];
 
-    constructor($log, Db, Tracks, $stateParams) {
+    constructor($log, Db, $stateParams) {
         this.$log = $log;
-        this.Db = Db
-        this.Tracks = Tracks;
+        this.Db = Db;
         let name = $stateParams.name;
-        this.track = Db.getItem('tracks')
-        //Tracks.getBy('name', name)
-        //    .then((track) => this.track = track);
+        this.track = Db.tracks()[name];
+    }
+
+    listSkills () {
+        return this.track.skills;
     }
 
 }
