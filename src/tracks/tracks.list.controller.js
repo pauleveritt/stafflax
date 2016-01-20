@@ -1,19 +1,11 @@
 class Controller {
-    static $inject = ['$log', 'Tracks', 'Db'];
+    static $inject = ['$log', 'Db'];
 
-    constructor($log, Tracks, Db) {
+    constructor($log, Db) {
         this.$log = $log;
         this.Db = Db;
-        this.items = Db.listTracks();
-        $log.debug('ti44', this.items);
-        //this.Tracks = Tracks;
-        //this.items = Tracks.list();
+        this.items = this.Db.tracks();
     }
-
-    remove(track) {
-        this.Tracks.remove(track);
-    }
-
 
 }
 

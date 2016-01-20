@@ -6,12 +6,11 @@ class Db {
 
     constructor($log) {
         this.$log = $log;
-        this.db = db;
+        this._db = db;
     }
 
-    listTracks() {
-        this.$log.debug('Db', this.db.tracks.defense);
-        return db.tracks;
+    tracks() {
+        return this._db.tracks;
     }
 
 }

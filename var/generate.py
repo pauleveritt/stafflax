@@ -36,12 +36,15 @@ class Loader(yaml.Loader):
     def extractFile(self, filename):
         filepath = os.path.join(self._root, filename + '.yaml')
         with open(filepath, 'r') as f:
-            return yaml.load(f, Loader)
+            result = yaml.load(f, Loader)
+            if isinstance(result, dict) and not result.get('name'):
+                result['name'] = filename
+            return result
 
 
 def get_track(track_name):
     with open(join(track_name, 'index.yaml')) as stream:
-            track_data = yaml.load(stream, Loader=Loader)
+        track_data = yaml.load(stream, Loader=Loader)
     return track_data
 
 
