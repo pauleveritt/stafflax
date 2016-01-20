@@ -14,7 +14,6 @@ class Controller {
             title: title.trim(),
             trackId: this.trackId
         };
-        this.$log.debug('newItem944', newItem);
         this.Skills.add(newItem)
             .then(() => this.$state.go('skills.list'));
     }
