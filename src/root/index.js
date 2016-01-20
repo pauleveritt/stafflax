@@ -5,7 +5,9 @@ import uirouter from 'angular-ui-router';
 
 // Wire up sub-app
 import states from './root.states';
+import Db from './db.service'
 
 export default angular.module('app.root', [uirouter])
     .config(states)
+    .service('Db', Db)
     .name;

@@ -7,20 +7,18 @@
         "C"
       ],
       "skills": [
-        [
-          {
-            "description": "When you are marking a player who has been passed the ball",
-            "instruction_points": [
-              {
-                "body": "Some text here",
-                "name": "stick-position",
-                "title": "Stick position"
-              }
-            ],
-            "name": "on-ball-defense",
-            "title": "On-Ball Defense"
-          }
-        ]
+        {
+          "description": "When you are marking a player who has been passed the ball",
+          "instruction_points": [
+            {
+              "body": "Some text here",
+              "name": "stick-position",
+              "title": "Stick position"
+            }
+          ],
+          "name": "on-ball-defense",
+          "title": "On-Ball Defense"
+        }
       ]
     }
   }
