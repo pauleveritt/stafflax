@@ -2,19 +2,19 @@
     <div layout="column" flex="33">
         <div layout="row">
             <h1 class="md-display-1">Tracks</h1>
-            <span flex></span>
-            <md-button ui-sref="tracks.add" aria-label="Add">
-                <ng-md-icon icon="add" style="padding-top: 2em"></ng-md-icon>
-            </md-button>
+            <!--<span flex></span>-->
+            <!--<md-button ui-sref="tracks.add" aria-label="Add">-->
+                <!--<ng-md-icon icon="add" style="padding-top: 2em"></ng-md-icon>-->
+            <!--</md-button>-->
         </div>
         <md-list>
-            <md-list-item ng-repeat="track in ctrl.items">
+            <md-list-item ng-repeat="(trackId, track) in ctrl.items">
                 <a class="md-list-item-text"
                    ui-sref="tracks.view({name: track.name})">{{track.title}}</a>
-                <span flex></span>
-                <md-button class="md-primary" ng-click="ctrl.remove(track)" aria-label="Delete">
-                    <ng-md-icon icon="delete" size="16"></ng-md-icon>
-                </md-button>
+                <!--<span flex></span>-->
+                <!--<md-button class="md-primary" ng-click="ctrl.remove(track)" aria-label="Delete">-->
+                    <!--<ng-md-icon icon="delete" size="16"></ng-md-icon>-->
+                <!--</md-button>-->
             </md-list-item>
         </md-list>
     </div>

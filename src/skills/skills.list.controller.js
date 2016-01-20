@@ -6,7 +6,6 @@ class Controller {
         this.Skills = Skills;
         this.items = Skills.list();
         this.newSkill = '';
-        $log.debug('skills json', Db.db.tracks.defense.skills[0].name);
     }
 
     remove(skill) {

@@ -9,6 +9,11 @@ class Db {
         this.db = db;
     }
 
+    listTracks() {
+        this.$log.debug('Db', this.db.tracks.defense);
+        return db.tracks;
+    }
+
 }
 
 export default Db;

@@ -40,10 +40,8 @@ class Loader(yaml.Loader):
 
 
 def get_track(track_name):
-    track_data = {}
-    for i in ['skills', 'drills']:
-        with open(join(track_name, i + '.yaml')) as stream:
-            track_data[i] = yaml.load(stream, Loader=Loader)
+    with open(join(track_name, 'index.yaml')) as stream:
+            track_data = yaml.load(stream, Loader=Loader)
     return track_data
 
 
