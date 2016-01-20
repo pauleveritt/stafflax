@@ -1,5 +1,5 @@
 {
-  "firebase": "stafflax",
+  "firebase": "staffordlax",
   "public": "dist",
   "ignore": [
     "firebase.json",
