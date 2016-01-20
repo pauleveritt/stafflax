@@ -1,4 +1,4 @@
-from os.path import join, dirname
+from os.path import join
 import json
 
 import yaml
@@ -39,15 +39,6 @@ class Loader(yaml.Loader):
             return yaml.load(f, Loader)
 
 
-# def yaml_include(loader, node):
-#     filename = join(dirname(loader.name), node.value) + '.yaml'
-#     with open(filename) as stream:
-#         return yaml.load(stream)
-#
-#
-# yaml.add_constructor('!include', yaml_include)
-
-
 def get_track(track_name):
     track_data = {}
     for i in ['skills', 'drills']:
@@ -57,12 +48,12 @@ def get_track(track_name):
 
 
 def main():
-    tracks = {}
+    db = {'tracks': {}}
     for track_name in ['defense']:
-        tracks[track_name] = get_track(track_name)
-    tracks_json = json.dumps(tracks, sort_keys=True, indent=2)
-    with open('tracks.json', 'w') as output:
-        output.write(tracks_json)
+        db['tracks'][track_name] = get_track(track_name)
+    db_json = json.dumps(db, sort_keys=True, indent=2)
+    with open('db.json', 'w') as output:
+        output.write(db_json)
 
 
 if __name__ == '__main__':
