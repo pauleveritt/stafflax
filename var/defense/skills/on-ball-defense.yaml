@@ -1,0 +1,7 @@
+- name: on-ball-defense
+  title: On-Ball Defense
+  description: When you are marking a player who has been passed the ball
+  instruction_points:
+    - name: stick-position
+      title: Stick position
+      body: Some text here
