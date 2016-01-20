@@ -34,7 +34,7 @@ class Loader(yaml.Loader):
             raise yaml.constructor.ConstructorError
 
     def extractFile(self, filename):
-        filepath = os.path.join(self._root, filename)
+        filepath = os.path.join(self._root, filename + '.yaml')
         with open(filepath, 'r') as f:
             return yaml.load(f, Loader)
 
