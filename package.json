@@ -3,14 +3,13 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "scripts": {
-    "dev": "webpack-dev-server --history-api-fallback --hot --inline --progress",
-    "build": "webpack --config webpack.build.js --bail -p",
-    "deploy": "firebase deploy"
+    "serve": "hugo server",
+    "deploy": "hugo && firebase deploy --only hosting"
   },
   "dependencies": {
 
   },
   "devDependencies": {
-    "firebase-tools": "3.6.1"
+    "firebase-tools": "^3.8.0"
   }
 }

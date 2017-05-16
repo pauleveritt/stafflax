@@ -1,11 +1,11 @@
 ---
-title: "SLA 3-3-3"
+title: "Home"
 featured_image: '/images/home_splash.jpg'
 keywords:
     - stafflax
     - lacrosse
     - stafford
-description: "Stafflax is 3 years, 3 goals, 3 activities to grow area lacrosse."
+description: "SLA 3-3-3 is 3 years, 3 goals, 3 activities to grow area lacrosse."
 ---
 
 [Stafford Lacrosse Association](http://staffordyouthlacrosse.com) (SLA)
@@ -18,3 +18,6 @@ For now, most information is available through our
 [@stafflax](https://twitter.com/stafflax) account on
 Twitter. If you'd like to reach the 3-3-3 team, head over
 to [the contact page](/contact) for details.
+
+This stafflax site is a short-hand location which leads to the SLA
+page above and is used mainly to support the Twitter campaign.
